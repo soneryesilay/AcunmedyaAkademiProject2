@@ -128,6 +128,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Context\SweetContext.cs" />
+    <Compile Include="Controllers\AdminLayoutController.cs" />
+    <Compile Include="Controllers\AdminProductController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
@@ -140,6 +142,10 @@
     <Compile Include="Entities\Testimonial.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202502051133148_InitialCreate.cs" />
+    <Compile Include="Migrations\202502051133148_InitialCreate.Designer.cs">
+      <DependentUpon>202502051133148_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -161,6 +167,90 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="elaadmin-master\assets\css\cs-skin-elastic.css" />
+    <Content Include="elaadmin-master\assets\css\lib\chosen\chosen-sprite%402x.png" />
+    <Content Include="elaadmin-master\assets\css\lib\chosen\chosen-sprite.png" />
+    <Content Include="elaadmin-master\assets\css\lib\chosen\chosen.css" />
+    <Content Include="elaadmin-master\assets\css\lib\chosen\chosen.min.css" />
+    <Content Include="elaadmin-master\assets\css\lib\datatable\buttons.bootstrap.min.css" />
+    <Content Include="elaadmin-master\assets\css\lib\datatable\buttons.dataTables.min.css" />
+    <Content Include="elaadmin-master\assets\css\lib\datatable\dataTables.bootstrap.min.css" />
+    <Content Include="elaadmin-master\assets\css\lib\vector-map\jqvmap.min.css" />
+    <Content Include="elaadmin-master\assets\css\style.css" />
+    <Content Include="elaadmin-master\assets\fonts\icomoon\icomoon.svg" />
+    <Content Include="elaadmin-master\assets\fonts\icomoon\index.html" />
+    <Content Include="elaadmin-master\assets\js\dashboard.js" />
+    <Content Include="elaadmin-master\assets\js\init\chartjs-init.js" />
+    <Content Include="elaadmin-master\assets\js\init\datatables-init.js" />
+    <Content Include="elaadmin-master\assets\js\init\flot-chart-init.js" />
+    <Content Include="elaadmin-master\assets\js\init\fullcalendar-init.js" />
+    <Content Include="elaadmin-master\assets\js\init\gmap-init.js" />
+    <Content Include="elaadmin-master\assets\js\init\peitychart-init.js" />
+    <Content Include="elaadmin-master\assets\js\init\vector-init.js" />
+    <Content Include="elaadmin-master\assets\js\init\weather-init.js" />
+    <Content Include="elaadmin-master\assets\js\lib\chosen\chosen.jquery.js" />
+    <Content Include="elaadmin-master\assets\js\lib\chosen\chosen.jquery.min.js" />
+    <Content Include="elaadmin-master\assets\js\lib\chosen\chosen.proto.js" />
+    <Content Include="elaadmin-master\assets\js\lib\chosen\chosen.proto.min.js" />
+    <Content Include="elaadmin-master\assets\js\lib\data-table\buttons.bootstrap.min.js" />
+    <Content Include="elaadmin-master\assets\js\lib\data-table\buttons.colVis.min.js" />
+    <Content Include="elaadmin-master\assets\js\lib\data-table\buttons.flash.min.js" />
+    <Content Include="elaadmin-master\assets\js\lib\data-table\buttons.html5.min.js" />
+    <Content Include="elaadmin-master\assets\js\lib\data-table\buttons.print.min.js" />
+    <Content Include="elaadmin-master\assets\js\lib\data-table\dataTables.bootstrap.min.js" />
+    <Content Include="elaadmin-master\assets\js\lib\data-table\dataTables.buttons.min.js" />
+    <Content Include="elaadmin-master\assets\js\lib\data-table\datatables.min.js" />
+    <Content Include="elaadmin-master\assets\js\lib\data-table\jquery-1.12.4.js" />
+    <Content Include="elaadmin-master\assets\js\lib\data-table\jquery.dataTables.min.js" />
+    <Content Include="elaadmin-master\assets\js\lib\data-table\jszip.min.js" />
+    <Content Include="elaadmin-master\assets\js\lib\data-table\pdfmake.min.js" />
+    <Content Include="elaadmin-master\assets\js\lib\data-table\vfs_fonts.js" />
+    <Content Include="elaadmin-master\assets\js\lib\gmap\gmapApi.js" />
+    <Content Include="elaadmin-master\assets\js\lib\gmap\gmaps.js" />
+    <Content Include="elaadmin-master\assets\js\lib\gmap\gmaps.min.js" />
+    <Content Include="elaadmin-master\assets\js\main.js" />
+    <Content Include="elaadmin-master\assets\js\vmap.sampledata.js" />
+    <Content Include="elaadmin-master\assets\js\widgets.js" />
+    <Content Include="elaadmin-master\assets\scss\style.css" />
+    <Content Include="elaadmin-master\charts-chartjs.html" />
+    <Content Include="elaadmin-master\charts-flot.html" />
+    <Content Include="elaadmin-master\charts-peity.html" />
+    <Content Include="elaadmin-master\font-fontawesome.html" />
+    <Content Include="elaadmin-master\font-themify.html" />
+    <Content Include="elaadmin-master\forms-advanced.html" />
+    <Content Include="elaadmin-master\forms-basic.html" />
+    <Content Include="elaadmin-master\images\.gitignore" />
+    <Content Include="elaadmin-master\images\admin.jpg" />
+    <Content Include="elaadmin-master\images\avatar\1.jpg" />
+    <Content Include="elaadmin-master\images\avatar\2.jpg" />
+    <Content Include="elaadmin-master\images\avatar\3.jpg" />
+    <Content Include="elaadmin-master\images\avatar\4.jpg" />
+    <Content Include="elaadmin-master\images\avatar\5.jpg" />
+    <Content Include="elaadmin-master\images\avatar\6.jpg" />
+    <Content Include="elaadmin-master\images\avatar\64-1.jpg" />
+    <Content Include="elaadmin-master\images\avatar\64-2.jpg" />
+    <Content Include="elaadmin-master\images\favicon.png" />
+    <Content Include="elaadmin-master\images\logo.png" />
+    <Content Include="elaadmin-master\images\logo2.png" />
+    <Content Include="elaadmin-master\index.html" />
+    <Content Include="elaadmin-master\maps-gmap.html" />
+    <Content Include="elaadmin-master\maps-vector.html" />
+    <Content Include="elaadmin-master\page-login.html" />
+    <Content Include="elaadmin-master\page-register.html" />
+    <Content Include="elaadmin-master\pages-forget.html" />
+    <Content Include="elaadmin-master\tables-basic.html" />
+    <Content Include="elaadmin-master\tables-data.html" />
+    <Content Include="elaadmin-master\ui-alerts.html" />
+    <Content Include="elaadmin-master\ui-badges.html" />
+    <Content Include="elaadmin-master\ui-buttons.html" />
+    <Content Include="elaadmin-master\ui-cards.html" />
+    <Content Include="elaadmin-master\ui-grids.html" />
+    <Content Include="elaadmin-master\ui-modals.html" />
+    <Content Include="elaadmin-master\ui-progressbar.html" />
+    <Content Include="elaadmin-master\ui-switches.html" />
+    <Content Include="elaadmin-master\ui-tabs.html" />
+    <Content Include="elaadmin-master\ui-typgraphy.html" />
+    <Content Include="elaadmin-master\widgets.html" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -238,6 +328,15 @@
     <Content Include="Romyk-1.0.0\js\bootstrap.bundle.min.js.map" />
     <Content Include="Romyk-1.0.0\js\bootstrap.js.map" />
     <Content Include="Romyk-1.0.0\js\bootstrap.min.js.map" />
+    <Content Include="elaadmin-master\.github\ISSUE_TEMPLATE.md" />
+    <Content Include="elaadmin-master\assets\css\style.css.map" />
+    <Content Include="elaadmin-master\assets\fonts\icomoon\icomoon.eot" />
+    <Content Include="elaadmin-master\assets\fonts\icomoon\icomoon.ttf" />
+    <Content Include="elaadmin-master\assets\fonts\icomoon\icomoon.woff" />
+    <Content Include="elaadmin-master\assets\scss\style.css.map" />
+    <Content Include="elaadmin-master\assets\scss\style.scss" />
+    <Content Include="elaadmin-master\images\logo.psd" />
+    <Content Include="elaadmin-master\README.md" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -271,6 +370,10 @@
     <Content Include="Views\Default\PartialSlider.cshtml" />
     <Content Include="Views\Default\PartialAbout.cshtml" />
     <Content Include="Views\Default\PartialLast6Product.cshtml" />
+    <Content Include="Views\Default\PartialService.cshtml" />
+    <Content Include="Views\AdminLayout\Index.cshtml" />
+    <Content Include="Views\AdminProduct\ProductList.cshtml" />
+    <Content Include="Views\AdminProduct\CreateProduct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -302,6 +405,11 @@
     <Content Include="Scripts\bootstrap.bundle.js.map" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202502051133148_InitialCreate.resx">
+      <DependentUpon>202502051133148_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -46,5 +46,11 @@ namespace AcunmedyaAkademiProject2.Controllers
             var values = context.Products.OrderByDescending(x => x.ProductId).Take(6).ToList();
             return PartialView(values);
         }
+
+        public PartialViewResult PartialService()
+        {
+            var values = context.Services.ToList();
+            return PartialView(values);
+        }
     }
 }
