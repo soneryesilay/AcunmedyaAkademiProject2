@@ -1,0 +1,30 @@
+﻿@model List<AcunmedyaAkademiProject2.Entities.Product>
+
+<div class="cream_section layout_padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="cream_taital">Öne Çıkan Tatlılarımız</h1>
+                <p class="cream_text">Misafirlerimizin en beğendiği tatlılar</p>
+            </div>
+        </div>
+        <div class="cream_section_2">
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-4">
+                        <div class="cream_box">
+                            <div class="cream_img"><img src="@item.ImageUrl"></div>
+                            <div class="price_text">$@item.Price</div>
+                            <h6 class="strawberry_text">@item.ProductName</h6>
+                            <div class="cart_bt"><a href="#">Ürün Detayları</a></div>
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>
+        
+        <div class="seemore_bt"><a href="/Product/ProductList">Tüm Ürün Listesi</a></div>
+    </div>
+</div>

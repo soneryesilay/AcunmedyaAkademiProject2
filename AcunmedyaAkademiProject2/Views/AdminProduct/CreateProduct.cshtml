@@ -1,0 +1,46 @@
+﻿@model AcunmedyaAkademiProject2.Entities.Product
+@{
+    ViewBag.Title = "CreateProduct";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="row">
+
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">Ürün Listesi</strong>
+                    </div>
+                    <div class="card-body">
+                        <form method="post">
+                            <label>Ürün Adı</label>
+                            <input type="text" name="ProductName" class="form-control" />
+                            <br />
+                            <label>Ürün Fiyat</label>
+                            <input type="text" name="Price" class="form-control" />
+                            <br />
+                            <label>Görsel URL</label>
+                            <input type="text" name="ImageUrl" class="form-control" />
+                            <br />
+                            <label>Ürün Kategori</label>
+                            @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.v, new { @class = "form-control" })
+                            <br />
+                            <label>Ürün Açıklaması</label>
+                            <input type="text" name="Description" class="form-control" />
+                            <br />
+                            <button class="btn btn-primary">Ürün Ekle</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </div><!-- .animated -->
+</div>
+

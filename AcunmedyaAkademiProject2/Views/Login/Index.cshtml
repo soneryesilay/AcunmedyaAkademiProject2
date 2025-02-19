@@ -1,0 +1,170 @@
+﻿
+@{
+    Layout = null;
+}
+@*<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <form method="post">
+        <div class="container">
+            <br /><br />
+            <div class="alert alert-primary"><strong>Admin Giriş Paneli</strong></div>
+            <label>Kullanıcı Adınız</label>
+            <input type="text" name="Username" class="form-control" />
+            <br />
+            <label>Şifreniz</label>
+            <input tpye ="password" name="Password" class="form-control/>
+            <br />
+            <button class="btn btn-info">Giriş Yap</button>
+            <a href="/Register/Index" class="btn btn-dark">Kayıt Ol</a>
+        </div>
+    </form>*@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .auth-container {
+            max-width: 400px;
+            width: 100%;
+            margin: 5% auto;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            background: white;
+        }
+
+        .auth-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .auth-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .form-control {
+            border-radius: 8px;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
+
+            .form-control:focus {
+                border-color: #3498db;
+                box-shadow: none;
+            }
+
+        .password-toggle {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+
+        .btn-auth {
+            width: 100%;
+            padding: 12px;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            background: #3498db;
+            border: none;
+        }
+
+            .btn-auth:hover {
+                background: #2980b9;
+                transform: translateY(-2px);
+            }
+
+        .auth-footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        <style >
+        @@media (max-width: 576px) {
+            .auth-container
+
+        {
+            padding: 20px;
+            margin: 5% 10px;
+        }
+
+        .auth-title {
+            font-size: 1.5rem;
+        }
+
+        .btn-auth {
+            padding: 10px;
+        }
+        }
+    </style>
+
+    <title>Giriş Yapın</title>
+</head>
+<body>
+
+    <div class="auth-container">
+        <div class="auth-header">
+            <h1 class="auth-title">Hoş Geldiniz</h1>
+            <p class="text-muted">Lütfen hesabınıza giriş yapın</p>
+        </div>
+
+        <form method="post">
+            <div class="form-group">
+                <label>Kullanıcı Adı</label>
+                <input type="text"
+                       name="Username"
+                       class="form-control"
+                       placeholder="Kullanıcı adınızı girin"
+                       required>
+            </div>
+
+            <div class="form-group">
+                <label>Şifre</label>
+                <div class="position-relative">
+                    <input type="password"
+                           name="Password"
+                           class="form-control"
+                           placeholder="Şifrenizi girin"
+                           id="password"
+                           required>
+                    <span class="password-toggle" onclick="togglePassword()">
+                        <i id="toggleIcon" class="fa-solid fa-eye"></i>
+                    </span>
+                </div>
+            </div>
+
+            <button class="btn btn-auth btn-primary mt-4">Giriş Yap</button>
+
+            
+        </form>
+    </div>
+
+    <script>
+        function togglePassword() {
+            const passwordField = document.getElementById('password');
+            const toggleIcon = document.getElementById('toggleIcon');
+
+            if (passwordField.getAttribute('type') === 'password') {
+                passwordField.setAttribute('type', 'text');
+                // Şifre görünür: ikon açık göz olsun
+                toggleIcon.classList.remove('fa-eye-slash');
+                toggleIcon.classList.add('fa-eye');
+            } else {
+                passwordField.setAttribute('type', 'password');
+                // Şifre gizli: ikon kapalı göz olsun
+                toggleIcon.classList.remove('fa-eye');
+                toggleIcon.classList.add('fa-eye-slash');
+            }
+        }
+    </script>
+
+</body>
+</html>

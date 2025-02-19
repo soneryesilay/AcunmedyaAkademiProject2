@@ -1,0 +1,19 @@
+﻿@model List<AcunmedyaAkademiProject2.Entities.About>
+<div class="about_section layout_padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="about_img"><img src="/Romyk-1.0.0/images/about-img.png"></div>
+            </div>
+            @foreach (var item in Model)
+            {
+                <div class="col-md-6">
+                    <h1 class="about_taital">@item.Title</h1>
+                    <p class="about_text">@item.Decsription</p>
+                    <div class="read_bt_1"><a href="#">Rezervasyon Yapın</a></div>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
