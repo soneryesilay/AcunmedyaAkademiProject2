@@ -1,30 +1,85 @@
 ﻿@model List<AcunmedyaAkademiProject2.Entities.Product>
-
+<!-- Add SweetAlert2 CSS and JS -->
 <div class="cream_section layout_padding">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <h1 class="cream_taital">Öne Çıkan Tatlılarımız</h1>
-                <p class="cream_text">Misafirlerimizin en beğendiği tatlılar</p>
+                <p class="cream_text">
+                    En Favori Tatlılarımız!
+                </p>
             </div>
         </div>
-        <div class="cream_section_2">
-            <div class="row">
-                @foreach (var item in Model)
-                {
-                    <div class="col-md-4">
-                        <div class="cream_box">
-                            <div class="cream_img"><img src="@item.ImageUrl"></div>
-                            <div class="price_text">$@item.Price</div>
-                            <h6 class="strawberry_text">@item.ProductName</h6>
-                            <div class="cart_bt"><a href="#">Ürün Detayları</a></div>
-                        </div>
+        <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <div class="cream_section layout_padding">
+            <div class="container">
+                <!-- ... existing code ... -->
+                <div class="cream_section_2">
+                    <div class="row">
+                        @foreach (var item in Model.Take(6))
+                        {
+                            <div class="col-md-4">
+                                <div class="cream_box">
+                                    <div class="cream_img"><img src="@item.ImageUrl"></div>
+                                    <div class="price_text">$@item.Price</div>
+                                    <h6 class="strawberry_text">@item.ProductName</h6>
+                                    <div class="cart_bt">
+                                        <a href="#" class="product-detail"
+                                           data-name="@item.ProductName"
+                                           data-image="@item.ImageUrl"
+                                           data-price="@item.Price"
+                                           data-ingredients="@item.Ingredients">
+                                            Ürün Detayları
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        }
                     </div>
-                }
-
+                </div>
+                <!-- ... existing code ... -->
             </div>
         </div>
-        
-        <div class="seemore_bt"><a href="/Product/ProductList">Tüm Ürün Listesi</a></div>
+
     </div>
-</div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Handle product detail clicks
+            document.querySelectorAll('.product-detail').forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    const productData = {
+                        name: this.dataset.name,
+                        image: this.dataset.image,
+                        price: this.dataset.price,
+                        ingredients: this.dataset.ingredients
+                    };
+                    Swal.fire({
+                        title: productData.name,
+                        html: `
+                            <div class="text-center">
+                                <img src="${productData.image}" style="max-width: 200px; border-radius: 10px; margin: 15px 0;">
+                                <p><strong>Fiyat:</strong> $${productData.price}</p>
+                                <p><strong>İçindekiler:</strong><br>${productData.ingredients.replace(/,/g, '<br>')}</p>
+                            </div>
+                        `,
+                        showCloseButton: true,
+                        showConfirmButton: true,
+                        confirmButtonText: 'Kapat',
+                        customClass: {
+                            popup: 'custom-swal-popup'
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+    <style>
+        .custom-swal-popup {
+            border-radius: 15px;
+            padding: 20px;
+        }
+    </style>

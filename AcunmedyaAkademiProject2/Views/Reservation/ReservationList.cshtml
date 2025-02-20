@@ -1,0 +1,62 @@
+﻿@model List<AcunmedyaAkademiProject2.Entities.Reservation>
+
+@{
+    ViewBag.Title = "Rezervasyon Listesi";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">Rezervasyon Listesi</strong>
+                    </div>
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Ad Soyad</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Telefon</th>
+                                    <th scope="col">Kişi Sayısı</th>
+                                    <th scope="col">Rezervasyon Tarihi</th>
+                                    <th scope="col">Rezervasyon Durumu</th>
+                                    <th>İşlemler</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <th scope="row">@item.ReservationId</th>
+                                        <td>@item.CustomerName</td>
+                                        <td>@item.CustomerEmail</td>
+                                        <td>@item.CustomerPhone</td>
+                                        <td>@item.NumberOfPerson</td>
+                                        <td>@item.ReservationDate.ToString("dd/MM/yyyy HH:mm")</td>
+                                        <td>@item.Status</td>
+                                        <td>
+                                            <a href="@Url.Action("AcceptReservation", "Reservation", new { id = item.ReservationId })"
+                                               class="btn btn-success btn-sm">
+                                                <i class="fa fa-check"></i> Onayla
+                                            </a>
+                                          
+                                            <a href="@Url.Action("DeleteReservation", "Reservation", new { id = item.ReservationId })"
+                                               class="btn btn-danger btn-sm" onclick="return confirm('Bu rezervasyonu reddetmek stediğinize emin misiniz?');">
+                                                <i class="fa fa-trash"></i> Reddet
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

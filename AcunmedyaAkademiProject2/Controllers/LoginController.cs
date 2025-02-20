@@ -15,6 +15,12 @@ namespace AcunmedyaAkademiProject2.Controllers
             return View();
         }
 
+        public ActionResult UserList()
+        {
+            var values = context.Admins.ToList();
+            return View(values);
+        }
+
         [HttpPost]
         public ActionResult Index(Admin admin)
         {

@@ -128,18 +128,28 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Context\SweetContext.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AdminAboutController.cs" />
     <Compile Include="Controllers\AdminCategoryController.cs" />
+    <Compile Include="Controllers\AdminDashboardController.cs" />
     <Compile Include="Controllers\AdminLayoutController.cs" />
     <Compile Include="Controllers\AdminProductController.cs" />
+    <Compile Include="Controllers\AdminServiceController.cs" />
+    <Compile Include="Controllers\AdminSliderController.cs" />
+    <Compile Include="Controllers\AdminTestimonialController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\ErrorPagesController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\ReservationController.cs" />
+    <Compile Include="Controllers\ServiceController.cs" />
+    <Compile Include="Controllers\StatisticController.cs" />
     <Compile Include="Entities\About.cs" />
     <Compile Include="Entities\Admin.cs" />
     <Compile Include="Entities\Category.cs" />
+    <Compile Include="Entities\Reservation.cs" />
+    <Compile Include="Entities\Contact.cs" />
     <Compile Include="Entities\Message.cs" />
     <Compile Include="Entities\Product.cs" />
     <Compile Include="Entities\Service.cs" />
@@ -160,7 +170,40 @@
     <Compile Include="Migrations\202502191143327_mg2.Designer.cs">
       <DependentUpon>202502191143327_mg2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202502201037488_mg_icindekiler.cs" />
+    <Compile Include="Migrations\202502201037488_mg_icindekiler.Designer.cs">
+      <DependentUpon>202502201037488_mg_icindekiler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202502201039120_Ingredients.cs" />
+    <Compile Include="Migrations\202502201039120_Ingredients.Designer.cs">
+      <DependentUpon>202502201039120_Ingredients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202502201538582_mg_contact.cs" />
+    <Compile Include="Migrations\202502201538582_mg_contact.Designer.cs">
+      <DependentUpon>202502201538582_mg_contact.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202502201548324_mg_del_contact.cs" />
+    <Compile Include="Migrations\202502201548324_mg_del_contact.Designer.cs">
+      <DependentUpon>202502201548324_mg_del_contact.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202502201556025_mg_contact1.cs" />
+    <Compile Include="Migrations\202502201556025_mg_contact1.Designer.cs">
+      <DependentUpon>202502201556025_mg_contact1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202502201603367_mg_contact111.cs" />
+    <Compile Include="Migrations\202502201603367_mg_contact111.Designer.cs">
+      <DependentUpon>202502201603367_mg_contact111.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202502201637263_mg_reervation.cs" />
+    <Compile Include="Migrations\202502201637263_mg_reervation.Designer.cs">
+      <DependentUpon>202502201637263_mg_reervation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202502201838457_rezervasyon_duzenlemesi.cs" />
+    <Compile Include="Migrations\202502201838457_rezervasyon_duzenlemesi.Designer.cs">
+      <DependentUpon>202502201838457_rezervasyon_duzenlemesi.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\StatisticsViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -374,9 +417,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Product\ProductList.cshtml" />
     <Content Include="Views\Default\Index.cshtml" />
     <Content Include="Views\Default\PartialHead.cshtml" />
@@ -399,10 +439,28 @@
     <Content Include="Views\AdminCategory\CreateCategory.cshtml" />
     <Content Include="Views\AdminAbout\AboutList.cshtml" />
     <Content Include="Views\AdminAbout\UpdateAbout.cshtml" />
+    <Content Include="Views\AdminService\ServiceList.cshtml" />
+    <Content Include="Views\AdminService\CreateService.cshtml" />
+    <Content Include="Views\AdminService\UpdateService.cshtml" />
+    <Content Include="Views\AdminSlider\SliderList.cshtml" />
+    <Content Include="Views\AdminSlider\CreateSlider.cshtml" />
+    <Content Include="Views\AdminSlider\UpdateSlider.cshtml" />
+    <Content Include="Views\AdminTestimonial\TestimonialList.cshtml" />
+    <Content Include="Views\AdminTestimonial\CreateTestimonial.cshtml" />
+    <Content Include="Views\AdminTestimonial\UpdateTestimonial.cshtml" />
+    <Content Include="Views\Default\PartialTesimonial.cshtml" />
+    <Content Include="Views\About\Index.cshtml" />
+    <Content Include="Views\Service\Index.cshtml" />
+    <Content Include="Views\Default\PartialContact.cshtml" />
+    <Content Include="Views\Contact\ContactList.cshtml" />
+    <Content Include="Views\AdminDashboard\Index.cshtml" />
+    <Content Include="Views\Login\UserList.cshtml" />
+    <Content Include="Views\Statistic\StatisticList.cshtml" />
+    <Content Include="Views\Reservation\ReservationList.cshtml" />
+    <Content Include="Views\Reservation\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
@@ -440,6 +498,30 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202502191143327_mg2.resx">
       <DependentUpon>202502191143327_mg2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202502201037488_mg_icindekiler.resx">
+      <DependentUpon>202502201037488_mg_icindekiler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202502201039120_Ingredients.resx">
+      <DependentUpon>202502201039120_Ingredients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202502201538582_mg_contact.resx">
+      <DependentUpon>202502201538582_mg_contact.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202502201548324_mg_del_contact.resx">
+      <DependentUpon>202502201548324_mg_del_contact.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202502201556025_mg_contact1.resx">
+      <DependentUpon>202502201556025_mg_contact1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202502201603367_mg_contact111.resx">
+      <DependentUpon>202502201603367_mg_contact111.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202502201637263_mg_reervation.resx">
+      <DependentUpon>202502201637263_mg_reervation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202502201838457_rezervasyon_duzenlemesi.resx">
+      <DependentUpon>202502201838457_rezervasyon_duzenlemesi.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

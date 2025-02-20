@@ -1,0 +1,56 @@
+﻿@model List<AcunmedyaAkademiProject2.Entities.Admin>
+
+@{
+    ViewBag.Title = "User List";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="row">
+
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">Yetkili Kullanıcı Listesi</strong>
+                    </div>
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Kullanıcı Adı</th>
+                       
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+
+                                    <tr>
+                                        <th scope="row">@item.AdminId</th>
+                                        <td>@item.Username</td>
+
+                                  
+                                    </tr>
+                                }
+
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </div><!-- .animated -->
+</div>
+
+
+
+

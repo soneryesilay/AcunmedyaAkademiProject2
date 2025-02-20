@@ -1,0 +1,56 @@
+﻿@model List<AcunmedyaAkademiProject2.Entities.Service>
+@{
+    ViewBag.Title = "Hizmet Listesi";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">Hizmet Listesi</strong>
+                    </div>
+                    <div class="card-body">
+                        <a href="@Url.Action("CreateService", "AdminService")" class="btn btn-success mb-3">
+                            <i class="fa fa-plus"></i> Yeni Hizmet Ekle
+                        </a>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Hizmet Adı</th>
+                                    <th>Açıklama</th>
+                                    <th>İkon</th>
+                                    <th>Aktiflik Durumu</th>
+                                    <th>İşlemler</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.ServiceId</td>
+                                        <td>@item.Title</td>
+                                        <td>@item.Description</td>
+                                        <td><img src="@item.Icon" alt="Hizmet İkonu" style="width:25px; height:auto;" /></td>
+                                        <td>@item.Status</td>
+                                        <td>
+                                            <a href="@Url.Action("UpdateService", "AdminService", new { id = item.ServiceId })" class="btn btn-warning btn-sm">
+                                                <i class="fa fa-edit"></i> Güncelle
+                                            </a>
+                                            <a href="@Url.Action("DeleteService", "AdminService", new { id = item.ServiceId })" class="btn btn-danger btn-sm" onclick="return confirm('Bu hizmeti silmek istediğinizden emin misiniz?');">
+                                                <i class="fa fa-trash"></i> Sil
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

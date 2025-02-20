@@ -1,0 +1,45 @@
+﻿@model AcunmedyaAkademiProject2.Entities.Testimonial
+@{
+    ViewBag.Title = "Referans Güncelle";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">Referans Güncelle</strong>
+                    </div>
+                    <div class="card-body">
+                        @using (Html.BeginForm("UpdateTestimonial", "AdminTestimonial", FormMethod.Post))
+                        {
+                            @Html.HiddenFor(x => x.TestimonialId)
+
+                            <div class="form-group">
+                                <label for="NameSurname">Referans Adı</label>
+                                @Html.TextBoxFor(x => x.NameSurname, new { @class = "form-control", placeholder = "Referans adı giriniz..." })
+                                @Html.ValidationMessageFor(x => x.NameSurname, "", new { @style = "color:red" })
+                            </div>
+
+                            <div class="form-group">
+                                <label for="CommentDetail">Açıklama</label>
+                                @Html.TextAreaFor(x => x.CommentDetail, new { @class = "form-control", rows = 4, placeholder = "Referans açıklaması giriniz..." })
+                                @Html.ValidationMessageFor(x => x.CommentDetail, "", new { @style = "color:red" })
+                            </div>
+
+                            <div class="form-group">
+                                <label for="ImageUrl">Görsel URL</label>
+                                @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control", placeholder = "Görselin URL'sini giriniz..." })
+                                @Html.ValidationMessageFor(x => x.ImageUrl, "", new { @style = "color:red" })
+                            </div>
+
+                            <button type="submit" class="btn btn-warning">Referans Güncelle</button>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

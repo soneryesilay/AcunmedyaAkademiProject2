@@ -1,0 +1,59 @@
+﻿@model List<AcunmedyaAkademiProject2.Entities.Testimonial>
+@{
+    ViewBag.Title = "Referans Listesi";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">Referans Listesi</strong>
+                    </div>
+                    <div class="card-body">
+                        <a href="@Url.Action("CreateTestimonial", "AdminTestimonial")" class="btn btn-success mb-3">
+                            <i class="fa fa-plus"></i> Yeni Referans Ekle
+                        </a>
+
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Ad</th>
+                                    <th>Açıklama</th>
+                                    <th>Görsel</th>
+                                    <th>İşlemler</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.TestimonialId</td>
+                                        <td>@item.NameSurname</td>
+                                        <td>@item.CommentDetail</td>
+                                        <td>
+                                            <img src="@item.ImageUrl" alt="Görsel" width="100" height="100">
+                                        </td>
+                                        <td>
+                                            <a href="@Url.Action("UpdateTestimonial", "AdminTestimonial", new { id = item.TestimonialId })"
+                                               class="btn btn-warning btn-sm">
+                                                <i class="fa fa-edit"></i> Güncelle
+                                            </a>
+                                            <a href="@Url.Action("DeleteTestimonial", "AdminTestimonial", new { id = item.TestimonialId })"
+                                               class="btn btn-danger btn-sm" onclick="return confirm('Bu referansı silmek istediğinize emin misiniz?');">
+                                                <i class="fa fa-trash"></i> Sil
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- .animated -->
+</div>

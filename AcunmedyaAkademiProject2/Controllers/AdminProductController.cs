@@ -92,6 +92,7 @@ namespace AcunmedyaAkademiProject2.Controllers
                 value.Price = product.Price;
                 value.ImageUrl = product.ImageUrl;
                 value.CategoryId = product.CategoryId; // Kategori güncellendi
+                value.Ingredients = product.Ingredients;
 
                 context.SaveChanges();
                 return RedirectToAction("ProductList");

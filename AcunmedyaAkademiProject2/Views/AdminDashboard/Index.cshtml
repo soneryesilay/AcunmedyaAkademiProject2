@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<!-- Google Chart Alanı -->
+<div class="card-header">
+    <strong class="card-title">Dashboard</strong>
+</div>
+<div id="piechart" style="width: 100%; height: 500px;"></div>
+
+<!-- Google Charts JavaScript -->
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    // Google Charts'ı yükle
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+        // Controller'dan gelen veriyi dönüştür
+        var rawData = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.ChartData));
+
+        // String değerleri sayılara dönüştür (ikinci sütun için)
+        var chartData = [];
+        chartData.push(rawData[0]); // Header satırı ekle
+
+        for (var i = 1; i < rawData.length; i++) {
+            chartData.push([
+                rawData[i][0],
+                parseInt(rawData[i][1]) // String'den sayıya dönüştür
+            ]);
+        }
+
+        var data = google.visualization.arrayToDataTable(chartData);
+
+        var options = {
+            title: 'Ürün Kategorilerine Göre Dağılım',
+            is3D: true,
+            colors: ['#4e73df', '#1cc88a', '#36b9cc', '#f6c23e']
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        chart.draw(data, options);
+    }
+</script>

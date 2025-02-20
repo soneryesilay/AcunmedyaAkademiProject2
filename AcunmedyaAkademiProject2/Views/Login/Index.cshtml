@@ -104,6 +104,19 @@
             padding: 10px;
         }
         }
+
+        .back-to-home {
+            display: block; /* Tam blok genişliği yapar, daha kolay tıklanabilir */
+            text-align: center; /* Metni ortalar */
+            margin-top: 10px; /* Buton ile arasında boşluk bırakır */
+            color: #007bff; /* Bootstrap'ın varsayılan mavi rengi (isteğe bağlı) */
+            text-decoration: none; /* Alt çizgiyi kaldırır */
+        }
+
+            .back-to-home:hover {
+                text-decoration: underline; /* Fare üzerine gelindiğinde altını çizer (isteğe bağlı) */
+            }
+
     </style>
 
     <title>Giriş Yapın</title>
@@ -142,8 +155,8 @@
             </div>
 
             <button class="btn btn-auth btn-primary mt-4">Giriş Yap</button>
+            <a href="/Default/Index" class="back-to-home">Ana Sayfaya Dön</a>
 
-            
         </form>
     </div>
 

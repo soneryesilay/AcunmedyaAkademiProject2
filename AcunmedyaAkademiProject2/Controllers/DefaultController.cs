@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using AcunmedyaAkademiProject2.Context;
+using AcunmedyaAkademiProject2.Entities;
 
 namespace AcunmedyaAkademiProject2.Controllers
 {
@@ -52,5 +53,28 @@ namespace AcunmedyaAkademiProject2.Controllers
             var values = context.Services.ToList();
             return PartialView(values);
         }
+
+        public PartialViewResult PartialTesimonial()
+        {
+            var values = context.Testimonials.ToList();
+
+           
+            if (values == null || !values.Any())
+            {
+                
+                return PartialView("EmptyPartial");  
+            }
+
+            return PartialView(values);
+        }
+
+        public PartialViewResult PartialContact()
+        {
+            var values = context.Contacts;
+            return PartialView(values);
+        }
+
+        
+
     }
 }

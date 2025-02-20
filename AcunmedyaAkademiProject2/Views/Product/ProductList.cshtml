@@ -6,50 +6,135 @@
 
 <!DOCTYPE html>
 <html>
-@Html.Action("PartialHead", "Default")
+<head>
+   
+    @Html.Action("PartialHead", "Default")
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+    <style>
+        /* Custom styles for the SweetAlert2 popup */
+        .custom-swal-popup {
+            border-radius: 15px;
+            padding: 20px;
+            font-family: 'Arial', sans-serif; /* Consistent font */
+        }
+
+            .custom-swal-popup .swal2-title {
+                color: #333; /* Darker title color */
+                font-size: 1.8em; /* Larger title */
+                margin-bottom: 0.5em;
+            }
+
+            .custom-swal-popup .swal2-content {
+                color: #555;
+                font-size: 1em;
+                text-align: left; /* Left-align content for readability */
+            }
+
+                .custom-swal-popup .swal2-content img {
+                    display: block; /* centers in swal2-html-container*/
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+
+                .custom-swal-popup .swal2-content p {
+                    margin: 0.5em 0; /* Spacing between paragraphs */
+                    line-height: 1.4; /* Improved line height */
+                }
+
+                .custom-swal-popup .swal2-content strong {
+                    color: #222; /* Darker color for strong emphasis */
+                }
+
+            .custom-swal-popup .swal2-confirm {
+                background-color: #4CAF50; /* Example button color */
+                color: white;
+                border-radius: 5px;
+                padding: 10px 24px;
+                font-size: 1em;
+                box-shadow: none; /* remove box shadow*/
+            }
+
+                .custom-swal-popup .swal2-confirm:hover {
+                    background-color: #388e3c; /*darker green on hover*/
+                }
+
+            .custom-swal-popup .swal2-close {
+                font-size: 2em; /* make close button a bit bigger*/
+            }
+    </style>
+</head>
+
 <body>
     @Html.Action("PartialNavbar", "Default")
-    <!-- header section end -->
-    <!-- cream sectuion start -->
+
+
     <div class="cream_section layout_padding">
         <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h1 class="cream_taital">Tatlı ve Pastalarımız</h1>
-                    <p class="cream_text">En lezzetli ve uygun fiyatlı tatlılarımız sizleri bekliyor.</p>
-                </div>
-            </div>
             <div class="cream_section_2">
                 <div class="row">
-
                     @foreach (var item in Model)
                     {
                         <div class="col-md-4">
                             <div class="cream_box">
-                                <div class="cream_img"><img src="@item.ImageUrl" style="width:500px;height:250px;"></div>
-                                <div class="price_text">₺@item.Price</div>
+                                <div class="cream_img"><img src="@item.ImageUrl"></div>
+                                <div class="price_text">$@item.Price</div>
                                 <h6 class="strawberry_text">@item.ProductName</h6>
-                                <div class="cart_bt"><a href="#">Detaylar</a></div>
+                                <div class="cart_bt">
+                                    <a href="#" class="product-detail"
+                                       data-name="@item.ProductName"
+                                       data-image="@item.ImageUrl"
+                                       data-price="@item.Price"
+                                       data-ingredients="@item.Ingredients">
+                                        Ürün Detayları
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     }
-
-
                 </div>
             </div>
-
-
         </div>
     </div>
-    <!-- cream sectuion end -->
-    <!-- copyright section start -->
-    <div class="copyright_section margin_top90">
-        <div class="container">
-            <p class="copyright_text">2020 All Rights Reserved. Design by <a href="https://html.design">Free Html Templates</a> Distribution by <a href="https://themewagon.com">ThemeWagon</a></p>
-        </div>
-    </div>
-    <!-- copyright section end -->
-    <!-- Javascript files-->
+
+
+  
     @Html.Action("PartialScript", "Default")
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+   
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Handle product detail clicks
+            document.querySelectorAll('.product-detail').forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    const productData = {
+                        name: this.dataset.name,
+                        image: this.dataset.image,
+                        price: this.dataset.price,
+                        ingredients: this.dataset.ingredients
+                    };
+                    Swal.fire({
+                        title: productData.name,
+                        html: `
+                            <div class="text-center">
+                                <img src="${productData.image}" style="max-width: 200px; border-radius: 10px; margin: 15px 0;">
+                                <p><strong>Fiyat:</strong> $${productData.price}</p>
+                                <p><strong>İçindekiler:</strong><br>${productData.ingredients.replace(/,/g, '<br>')}</p>
+                            </div>
+                        `,
+                        showCloseButton: true,
+                        showConfirmButton: true,
+                        confirmButtonText: 'Kapat',
+                        customClass: {
+                            popup: 'custom-swal-popup'
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+
 </body>
 </html>

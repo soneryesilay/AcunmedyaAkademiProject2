@@ -1,0 +1,40 @@
+﻿@model List<AcunmedyaAkademiProject2.Entities.Service>
+
+@{
+    Layout = null;
+}
+
+@Html.Action("PartialHead", "Default")
+<body>
+    @Html.Action("PartialNavbar", "Default")
+
+    <div class="services_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="services_taital">Hizmetlerimiz</h1>
+                    <p class="services_text">Misafirlerimiz İçin Özenle Hazırladıklarımız</p>
+                </div>
+            </div>
+            <div class="services_section_2">
+                <div class="row">
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-md-4">
+                            <div class="services_box">
+                                <h5 class="tasty_text"><span class="icon_img"><img src="@item.Icon"></span>@item.Title</h5>
+                                <p class="lorem_text">@item.Description </p>
+                            </div>
+                        </div>
+                    }
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+@Html.Action("PartialScript", "Default")
+

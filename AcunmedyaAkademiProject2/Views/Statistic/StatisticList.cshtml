@@ -1,0 +1,136 @@
+﻿@model AcunmedyaAkademiProject2.Models.StatisticsViewModel
+
+@{
+    ViewBag.Title = "StatisticList";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="card-header">
+    <strong class="card-title">İstatistikler</strong>
+</div>
+<div class="row">
+    <div class="col-md-3">
+        <div class="card">
+            <div class="card-body">
+                <i class="fas fa-shopping-cart fa-3x"></i>
+                <h5 class="card-title">Ürün Sayısı</h5>
+                <p class="card-text">@Model.ProductCount</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card">
+            <div class="card-body">
+                <i class="fas fa-folder-open fa-3x"></i>
+                <h5 class="card-title">Kategori Sayısı</h5>
+                <p class="card-text">@Model.CategoryCount</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card">
+            <div class="card-body">
+                <i class="fas fa-smile fa-3x"></i>
+                <h5 class="card-title">Mutlu Müşteri Sayısı</h5>
+                <p class="card-text">@Model.HappyCustomerCount</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card">
+            <div class="card-body">
+                <i class="fas fa-clipboard-list fa-3x"></i>
+                <h5 class="card-title">Sipariş Sayısı</h5>
+                <p class="card-text">@Model.OrderCount</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card">
+            <div class="card-body">
+                <i class="fas fa-arrow-down fa-3x"></i>
+                <h5 class="card-title">En Ucuz Ürün</h5>
+                <p class="card-text">@Model.CheapestProductName - @Model.MinProductPrice.ToString("C")</p> 
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card">
+            <div class="card-body">
+                <i class="fas fa-arrow-up fa-3x"></i>
+                <h5 class="card-title">En Pahalı Ürün</h5>
+                <p class="card-text">@Model.MostExpensiveProductName - @Model.MaxProductPrice.ToString("C")</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card">
+            <div class="card-body">
+                <i class="fas fa-truck fa-3x"></i>
+                <h5 class="card-title">Tedarikçi Sayısı</h5>
+                <p class="card-text">@Model.SupplierCount</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card">
+            <div class="card-body">
+                <i class="fas fa-boxes fa-3x"></i>
+                <h5 class="card-title">Toplam Stok</h5>
+                <p class="card-text">@Model.TotalStockQuantity</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card">
+            <div class="card-body">
+                <i class="fas fa-hourglass-half fa-3x"></i>
+                <h5 class="card-title">Aktif Siparişler</h5>
+                <p class="card-text">@Model.ActiveOrderCount</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card">
+            <div class="card-body">
+                <i class="fas fa-dollar-sign fa-3x"></i>
+                <h5 class="card-title">Ortalama Ürün Fiyatı</h5>
+                <p class="card-text">@Model.AverageProductPrice.ToString("C")</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        @*Boş bir kutu eklendi*@
+    </div>
+    <div class="col-md-3">
+        @*Boş bir kutu eklendi*@
+    </div>
+</div>
+
+@* Font Awesome'ı eklemek için (Eğer AdminLayout'ta yoksa) *@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+    .card {
+        margin-bottom: 20px;
+        border: 1px solid #ddd; /* İnce bir kenarlık */
+        border-radius: 10px; /* Yuvarlatılmış köşeler */
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Hafif bir gölge */
+        transition: transform 0.2s ease; /* Hover efekti için geçiş */
+    }
+
+        .card:hover {
+            transform: translateY(-5px); /* Hover durumunda hafifçe yukarı kaydırma */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /*Hover anında gölgelendirme*/
+        }
+
+    .card-body {
+        text-align: center; /* İçeriği ortala */
+    }
+
+    .card-title {
+        font-size: 1.2em;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+</style>

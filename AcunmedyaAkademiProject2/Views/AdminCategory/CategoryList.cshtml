@@ -15,13 +15,16 @@
                         <strong class="card-title">Kategori Listesi</strong>
                     </div>
                     <div class="card-body">
+                        <a href="@Url.Action("CreateCategory", "AdminCategory")" class="btn btn-success mb-3">
+                            <i class="fa fa-plus"></i> Yeni Kategori Ekle
+                        </a>
+
                         <table class="table">
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Kategori Adı</th>
-                                    <th scope="col">Sil</th>
-                                    <th scope="col">Güncelle</th>
+                                    <th>İşlemler</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -31,16 +34,23 @@
                                     <tr>
                                         <th scope="row">@item.CategoryId</th>
                                         <td>@item.CategoryName</td>
-                                     
-                                        <td><a href="/AdminCategory/DeleteCategory/@item.CategoryId" class="btn btn-danger">Sil</a></td>
-                                        <td><a href="/AdminCategory/UpdateCategory/@item.CategoryId" class="btn btn-success">Güncelle</a></td>
+
+                                        <td>
+                                            <a href="@Url.Action("UpdateCategory", "AdminCategory", new { id = item.CategoryId })"
+                                               class="btn btn-warning btn-sm">
+                                                <i class="fa fa-edit"></i> Güncelle
+                                            </a>
+                                            <a href="@Url.Action("DeleteCategory", "AdminCategory", new { id = item.CategoryId })"
+                                               class="btn btn-danger btn-sm" onclick="return confirm('Bu Kategoriyi silmek istediğinize emin misiniz?');">
+                                                <i class="fa fa-trash"></i> Sil
+                                            </a>
+                                        </td>
                                     </tr>
                                 }
 
 
                             </tbody>
                         </table>
-                        <td><a href="/AdminCategory/CreateCategory" class="btn btn-primary">Yeni Kategori Girişi</a></td>
 
                     </div>
                 </div>

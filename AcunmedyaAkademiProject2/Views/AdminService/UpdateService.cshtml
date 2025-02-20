@@ -1,0 +1,45 @@
+﻿@model AcunmedyaAkademiProject2.Entities.Service
+@{
+    ViewBag.Title = "Hizmeti Güncelle";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    
+                    <div class="card-body">
+                        @using (Html.BeginForm("UpdateService", "AdminService", FormMethod.Post))
+                        {
+                            @Html.HiddenFor(x => x.ServiceId)
+
+                            <div class="form-group">
+                                <label for="ServiceName">Hizmet Adı</label>
+                                @Html.TextBoxFor(x => x.Title, new { @class = "form-control", placeholder = "Hizmet adını giriniz..." })
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Description">Hizmet Açıklaması</label>
+                                @Html.TextAreaFor(x => x.Description, new { @class = "form-control", rows = 4, placeholder = "Hizmet açıklamasını giriniz..." })
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Icon">Hizmet İkonu</label>
+                                @Html.TextAreaFor(x => x.Icon, new { @class = "form-control", rows = 4, placeholder = "Hizmet İkonu giriniz..." })
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Status">Hizmet İkonu</label>
+                                @Html.TextAreaFor(x => x.Status, new { @class = "form-control", rows = 4, placeholder = "Aktfilik Durumu giriniz (1 yada 0)" })
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Hizmeti Güncelle</button>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- .animated -->
+</div>
