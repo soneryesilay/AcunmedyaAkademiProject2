@@ -32,13 +32,13 @@ namespace AcunmedyaAkademiProject2.Controllers
             model.ActiveOrderCount = rnd.Next(10, 100);    // 10 ile 100 arasında
 
             // LINQ ile Min/Max fiyatları bulma (Product tablonuzdaki doğru alan adını kullanın - "Price" yerine)
-            model.MinProductPrice = context.Products.Any() ? context.Products.Min(p => p.Price) : 0;  // PPrice olarak değiştirdim. Kendi alan adınızı kullanın.
-            model.MaxProductPrice = context.Products.Any() ? context.Products.Max(p => p.Price) : 0;  // PPrice
-            model.AverageProductPrice = context.Products.Any() ? context.Products.Average(p => p.Price) : 0; // PPrice
+            model.MinProductPrice = context.Products.Any() ? context.Products.Min(p => p.Price) : 0;  
+            model.MaxProductPrice = context.Products.Any() ? context.Products.Max(p => p.Price) : 0;  
+            model.AverageProductPrice = context.Products.Any() ? context.Products.Average(p => p.Price) : 0; 
 
             // En pahalı ve en ucuz ürünü bul (Product tablonuzdaki doğru alan adını kullanın - "ProductName" yerine)
-            model.MostExpensiveProductName = context.Products.Any() ? context.Products.OrderByDescending(p => p.Price).FirstOrDefault().ProductName : "No Product"; //PName
-            model.CheapestProductName = context.Products.Any() ? context.Products.OrderBy(p => p.Price).FirstOrDefault().ProductName : "No Product"; // PName
+            model.MostExpensiveProductName = context.Products.Any() ? context.Products.OrderByDescending(p => p.Price).FirstOrDefault().ProductName : "No Product"; 
+            model.CheapestProductName = context.Products.Any() ? context.Products.OrderBy(p => p.Price).FirstOrDefault().ProductName : "No Product"; 
 
             return View(model); // Modeli View'a gönder.
         }
