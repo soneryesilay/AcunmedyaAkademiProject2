@@ -10,7 +10,7 @@ Bu proje, 26.02.2025 tarihinde tamamladığım Acunmedya Akademi ve Murat Yüced
 
 - Layout Kontrolü
 
-- Db First yaklaşımı
+- Code First yaklaşımı
 
 - Entity Framework
 
