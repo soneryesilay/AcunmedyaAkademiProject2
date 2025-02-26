@@ -21,8 +21,9 @@
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Kullanıcı Adı</th>
-                       
+
                                 </tr>
+                            </thead>
                             </thead>
                             <tbody>
                                 @foreach (var item in Model)
@@ -31,8 +32,8 @@
                                     <tr>
                                         <th scope="row">@item.AdminId</th>
                                         <td>@item.Username</td>
+                                        
 
-                                  
                                     </tr>
                                 }
 

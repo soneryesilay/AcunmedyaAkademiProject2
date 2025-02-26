@@ -1,0 +1,30 @@
+﻿<div class="user-area dropdown float-right">
+    <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <div class="user-profile-container">
+            <span class="user-name">@Model.Username</span>
+        </div>
+    </a>
+
+    <div class="user-menu dropdown-menu">
+        <a class="nav-link" href="/AdminProfile/MyProfile"><i class="fa fa-user"></i>Profilim</a>
+        <a class="nav-link" href="/Login/UserList"><i class="fa fa-cog"></i>Ayarlar</a>
+        <a class="nav-link" href="/Login/Logout"><i class="fa fa-power-off"></i>Çıkış Yap</a>
+    </div>
+</div>    
+<style>
+    /* Add this to your /elaadmin-master/assets/css/style.css  OR a separate custom CSS file */
+    .user-profile-container {
+        /*  Keep text-align if you want to center the username */
+        text-align: center;
+        /* Add any other desired container styles here */
+    }
+
+    .user-name {
+        /* Style the username as you like */
+        /* Example: */
+        font-size: 16px;
+        font-weight: bold;
+        color: #333; /* Dark gray color */
+        /* Add any other styling for the username here */
+    }
+</style>

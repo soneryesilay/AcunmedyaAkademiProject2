@@ -134,6 +134,7 @@
     <Compile Include="Controllers\AdminDashboardController.cs" />
     <Compile Include="Controllers\AdminLayoutController.cs" />
     <Compile Include="Controllers\AdminProductController.cs" />
+    <Compile Include="Controllers\AdminProfileController.cs" />
     <Compile Include="Controllers\AdminServiceController.cs" />
     <Compile Include="Controllers\AdminSliderController.cs" />
     <Compile Include="Controllers\AdminTestimonialController.cs" />
@@ -201,6 +202,14 @@
     <Compile Include="Migrations\202502201838457_rezervasyon_duzenlemesi.cs" />
     <Compile Include="Migrations\202502201838457_rezervasyon_duzenlemesi.Designer.cs">
       <DependentUpon>202502201838457_rezervasyon_duzenlemesi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202502261306586_mg_admin.cs" />
+    <Compile Include="Migrations\202502261306586_mg_admin.Designer.cs">
+      <DependentUpon>202502261306586_mg_admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202502261442367_mg_end.cs" />
+    <Compile Include="Migrations\202502261442367_mg_end.Designer.cs">
+      <DependentUpon>202502261442367_mg_end.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\StatisticsViewModel.cs" />
@@ -340,6 +349,7 @@
     <Content Include="Romyk-1.0.0\images\banner-bg.png" />
     <Content Include="Romyk-1.0.0\images\banner-img.png" />
     <Content Include="Romyk-1.0.0\images\client-img.png" />
+    <Content Include="Romyk-1.0.0\images\esracufadar.png" />
     <Content Include="Romyk-1.0.0\images\icon-1.png" />
     <Content Include="Romyk-1.0.0\images\icon-2.png" />
     <Content Include="Romyk-1.0.0\images\icon-3.png" />
@@ -458,6 +468,10 @@
     <Content Include="Views\Statistic\StatisticList.cshtml" />
     <Content Include="Views\Reservation\ReservationList.cshtml" />
     <Content Include="Views\Reservation\Index.cshtml" />
+    <Content Include="Views\AdminLayout\PartialUser.cshtml" />
+    <Content Include="Views\AdminLayout\PartialMessage.cshtml" />
+    <Content Include="Views\AdminLayout\PartialNotification.cshtml" />
+    <Content Include="Views\AdminProfile\MyProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -522,6 +536,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202502201838457_rezervasyon_duzenlemesi.resx">
       <DependentUpon>202502201838457_rezervasyon_duzenlemesi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202502261306586_mg_admin.resx">
+      <DependentUpon>202502261306586_mg_admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202502261442367_mg_end.resx">
+      <DependentUpon>202502261442367_mg_end.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
