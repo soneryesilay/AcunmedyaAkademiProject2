@@ -44,8 +44,13 @@ namespace AcunmedyaAkademiProject2.Controllers
 
         public PartialViewResult PartialLast6Product()
         {
-            var values = context.Products.OrderByDescending(x => x.ProductId).Take(6).ToList();
-            return PartialView(values);
+            var values = context.Products
+                .Where(p=>p.Category.CategoryName =="Tatlılar")
+                .OrderByDescending(x => x.ProductId)
+                .Take(6)
+                .ToList();
+
+            return PartialView(values);      
         }
 
         public PartialViewResult PartialService()
