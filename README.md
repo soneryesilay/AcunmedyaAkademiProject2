@@ -51,7 +51,7 @@ git clone https://github.com/soneryesilay/AcunmedyaAkademiProject2.git
 add-migration InitialCreate
 Update-Database
 ```
-Admin Tablosuna kullanıcı adı ve şifre eklemeyi unutmayın!
+### Admin Tablosuna kullanıcı adı ve şifreyi MSSQL üzerinden eklemeyi unutmayın!
 
 Navigate to the project directory and compile/run the project:
 ```bash
