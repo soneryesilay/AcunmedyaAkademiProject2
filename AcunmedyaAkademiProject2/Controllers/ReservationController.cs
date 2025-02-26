@@ -13,10 +13,9 @@ namespace AcunmedyaAkademiProject2.Controllers
         // GET: Index (Rezervasyon oluşturma sayfası)
         public ActionResult Index()
         {
-            return View();  // Doğrudan rezervasyon formunu göster
+            return View(); 
         }
 
-        // GET: ReservationList (Admin için rezervasyon listesi - yetkilendirme gerekli)
         [Authorize]
         public ActionResult ReservationList()
         {
@@ -40,7 +39,7 @@ namespace AcunmedyaAkademiProject2.Controllers
                     CustomerPhone = model.CustomerPhone,
                     NumberOfPerson = model.NumberOfPerson,
                     ReservationDate = model.ReservationDate,
-                    Status = false // Yeni rezervasyonun durumu false (onaylanmamış)
+                    Status = false // Yeni rezervasyonun durumu false 
                 };
 
                 context.Reservations.Add(reservation);
@@ -55,7 +54,6 @@ namespace AcunmedyaAkademiProject2.Controllers
         }
 
 
-        // AcceptReservation (Admin için - Rezervasyonu kabul etme)
         [Authorize]
         public ActionResult AcceptReservation(int id)
         {
@@ -72,7 +70,6 @@ namespace AcunmedyaAkademiProject2.Controllers
                 }
                 else
                 {
-                    // Eğer rezervasyon zaten kabul edilmişse, bir şey yapma
                     TempData["InfoMessage"] = "Bu rezervasyon zaten kabul edilmiş.";
                 }
             }
@@ -81,7 +78,7 @@ namespace AcunmedyaAkademiProject2.Controllers
                 TempData["ErrorMessage"] = "Rezervasyon bulunamadı.";
             }
 
-            return RedirectToAction("ReservationList"); // Rezervasyon kabul edildikten sonra admin rezervasyon listesine yönlendir.
+            return RedirectToAction("ReservationList"); 
         }
 
         // Silme işlemi (Admin için)
@@ -100,7 +97,7 @@ namespace AcunmedyaAkademiProject2.Controllers
                 TempData["ErrorMessage"] = "Rezervasyon bulunamadı.";
             }
 
-            return RedirectToAction("ReservationList"); // Silme işleminden sonra admin rezervasyon listesine yönlendir.
+            return RedirectToAction("ReservationList"); 
         }
     }
 }

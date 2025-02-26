@@ -15,7 +15,6 @@ namespace AcunmedyaAkademiProject2.Controllers
             _context = new SweetContext();
         }
 
-        // Hakkımda Listesi
         public ActionResult AboutList()
         {
             var abouts = _context.Abouts.ToList();
@@ -23,7 +22,6 @@ namespace AcunmedyaAkademiProject2.Controllers
         }
 
 
-        // Hakkımda Güncelleme (GET)
         [HttpGet]
         public ActionResult UpdateAbout(int id)
         {
@@ -35,7 +33,6 @@ namespace AcunmedyaAkademiProject2.Controllers
             return View(about);
         }
 
-        // Hakkımda Güncelleme (POST)
         [HttpPost]
         public ActionResult UpdateAbout(About about)
         {

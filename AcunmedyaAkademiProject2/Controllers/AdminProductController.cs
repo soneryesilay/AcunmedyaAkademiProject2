@@ -18,7 +18,6 @@ namespace AcunmedyaAkademiProject2.Controllers
             return View(values);
         }
 
-        // Yeni Ürün Ekleme (GET)
         
         [HttpGet]
         public ActionResult CreateProduct()
@@ -30,11 +29,10 @@ namespace AcunmedyaAkademiProject2.Controllers
                     Value = x.CategoryId.ToString()
                 }).ToList();
 
-            ViewBag.v = categories;  // Kategorileri ViewBag ile gönder
+            ViewBag.v = categories;  
             return View();
         }
 
-        // Yeni Ürün Ekleme (POST)
         [HttpPost]
         public ActionResult CreateProduct(Product product)
         {
@@ -51,7 +49,7 @@ namespace AcunmedyaAkademiProject2.Controllers
         public ActionResult DeleteProduct(int id)
         {
             var value = context.Products.Find(id);
-            if (value != null) // Null kontrolü eklendi
+            if (value != null) 
             {
                 context.Products.Remove(value);
                 context.SaveChanges();
@@ -59,7 +57,6 @@ namespace AcunmedyaAkademiProject2.Controllers
             return RedirectToAction("ProductList");
         }
 
-        // Ürün Güncelleme (GET)
         [HttpGet]
         public ActionResult UpdateProduct(int id)
         {
@@ -76,11 +73,10 @@ namespace AcunmedyaAkademiProject2.Controllers
                     Value = x.CategoryId.ToString()
                 }).ToList();
 
-            ViewBag.v = categories; // Kategori listesi gönderildi
+            ViewBag.v = categories; 
             return View(value);
         }
 
-        // Ürün Güncelleme (POST)
         [HttpPost]
         public ActionResult UpdateProduct(Product product)
         {
@@ -91,7 +87,7 @@ namespace AcunmedyaAkademiProject2.Controllers
                 value.Description = product.Description;
                 value.Price = product.Price;
                 value.ImageUrl = product.ImageUrl;
-                value.CategoryId = product.CategoryId; // Kategori güncellendi
+                value.CategoryId = product.CategoryId; 
                 value.Ingredients = product.Ingredients;
 
                 context.SaveChanges();

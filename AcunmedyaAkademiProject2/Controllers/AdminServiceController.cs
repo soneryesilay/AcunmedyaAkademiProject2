@@ -8,24 +8,20 @@ namespace AcunmedyaAkademiProject2.Controllers
     [Authorize]
     public class AdminServiceController : Controller
     {
-        // Veritabanı bağlantısı
         SweetContext context = new SweetContext();
 
-        // Hizmetleri Listeleme
         public ActionResult ServiceList()
         {
             var values = context.Services.ToList();
             return View(values);
         }
 
-        //  Yeni Hizmet Ekleme (GET)
         [HttpGet]
         public ActionResult CreateService()
         {
             return View();
         }
 
-        //  Yeni Hizmet Ekleme (POST)
         [HttpPost]
         public ActionResult CreateService(Service service)
         {
@@ -34,7 +30,6 @@ namespace AcunmedyaAkademiProject2.Controllers
             return RedirectToAction("ServiceList");
         }
 
-        //  Hizmet Silme
         public ActionResult DeleteService(int id)
         {
             var value = context.Services.Find(id);
@@ -46,7 +41,6 @@ namespace AcunmedyaAkademiProject2.Controllers
             return RedirectToAction("ServiceList");
         }
 
-        //  Hizmet Güncelleme (GET)
         [HttpGet]
         public ActionResult UpdateService(int id)
         {
@@ -54,7 +48,6 @@ namespace AcunmedyaAkademiProject2.Controllers
             return View(value);
         }
 
-        //  Hizmet Güncelleme (POST)
         [HttpPost]
         public ActionResult UpdateService(Service service)
         {

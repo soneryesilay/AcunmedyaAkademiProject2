@@ -15,7 +15,7 @@ namespace AcunmedyaAkademiProject2.Controllers
             _context = new SweetContext();
         }
 
-        // Admin profilini görüntüle (MyProfile)
+        // Admin profili
         public ActionResult MyProfile()
         {
             var admin = _context.Admins.FirstOrDefault();

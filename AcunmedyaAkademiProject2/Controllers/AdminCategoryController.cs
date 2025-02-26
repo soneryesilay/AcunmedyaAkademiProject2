@@ -23,14 +23,12 @@ namespace AcunmedyaAkademiProject2.Controllers
             return View(categories);
         }
 
-        // Yeni Kategori Ekleme (GET)
         [HttpGet]
         public ActionResult CreateCategory()
         {
             return View();
         }
 
-        // Yeni Kategori Ekleme (POST)
         [HttpPost]
         public ActionResult CreateCategory(Category category)
         {

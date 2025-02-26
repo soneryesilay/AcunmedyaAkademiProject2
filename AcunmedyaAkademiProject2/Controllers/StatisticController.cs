@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using AcunmedyaAkademiProject2.Models; // ViewModel'i eklemeyi unutma!
+using AcunmedyaAkademiProject2.Models; 
 
 namespace AcunmedyaAkademiProject2.Controllers
 {
@@ -15,14 +15,11 @@ namespace AcunmedyaAkademiProject2.Controllers
         SweetContext context = new SweetContext();
         public ActionResult StatisticList()
         {
-            // Veritabanından verileri çek ve StatisticsViewModel'e ata.
             StatisticsViewModel model = new StatisticsViewModel();
 
-            // Mevcut tablolarından verileri çek
             model.ProductCount = context.Products.Count();
             model.CategoryCount = context.Categories.Count();
 
-            // ---  VAR OLMAYAN TABLOLAR İÇİN RASTGELE DEĞERLER ---
             // Bu değerleri istediğin gibi değiştirebilirsin.
             Random rnd = new Random();
             model.HappyCustomerCount = rnd.Next(50, 200); // 50 ile 200 arasında rastgele bir sayı
@@ -31,16 +28,16 @@ namespace AcunmedyaAkademiProject2.Controllers
             model.TotalStockQuantity = rnd.Next(1000, 5000); // 1000 ile 5000 arasında
             model.ActiveOrderCount = rnd.Next(10, 100);    // 10 ile 100 arasında
 
-            // LINQ ile Min/Max fiyatları bulma (Product tablonuzdaki doğru alan adını kullanın - "Price" yerine)
+
+            //Bu alandaki değerler veri tabanından gelir
             model.MinProductPrice = context.Products.Any() ? context.Products.Min(p => p.Price) : 0;  
             model.MaxProductPrice = context.Products.Any() ? context.Products.Max(p => p.Price) : 0;  
             model.AverageProductPrice = context.Products.Any() ? context.Products.Average(p => p.Price) : 0; 
 
-            // En pahalı ve en ucuz ürünü bul (Product tablonuzdaki doğru alan adını kullanın - "ProductName" yerine)
             model.MostExpensiveProductName = context.Products.Any() ? context.Products.OrderByDescending(p => p.Price).FirstOrDefault().ProductName : "No Product"; 
             model.CheapestProductName = context.Products.Any() ? context.Products.OrderBy(p => p.Price).FirstOrDefault().ProductName : "No Product"; 
 
-            return View(model); // Modeli View'a gönder.
+            return View(model); 
         }
     }
 }

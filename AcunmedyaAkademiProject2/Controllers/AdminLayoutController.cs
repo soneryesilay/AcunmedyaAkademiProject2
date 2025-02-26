@@ -30,7 +30,7 @@ namespace AcunmedyaAkademiProject2.Controllers
             // Oturumdaki kullanıcı bilgilerini al
             var user = context.Admins.FirstOrDefault(x => x.Username == User.Identity.Name);
 
-            // Kullanıcı bilgilerini view'e gönder
+            // Kullanıcı bilgilerini viewa gönder
             return PartialView(user);
         }
 
