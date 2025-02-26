@@ -24,6 +24,8 @@ Bu proje, 26.02.2025 tarihinde tamamladığım Acunmedya Akademi ve Murat Yüced
 
 - Bootstrap Kullanımı
 
+- Javascript
+
 
 ## Proje Hakkında
 
