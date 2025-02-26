@@ -44,14 +44,19 @@ Bu proje, eğitim sürecinde öğrenilen konseptlerin uygulamalı olarak pekişt
 ve daha fazlası...
 ## Utilizing the Repository
 
-- Web.config dosyasında bulunan connection stringi değiştirmeyi unutmayın!
+- Web.config ve SweetContext dosyalarında bulunan connection stringleri değiştirmeyi unutmayın!
 - Admin Tablosuna kullanıcı adı ve şifreyi MSSQL üzerinden eklemeyi unutmayın!
 
 Clone the project: 
 
 ```bash
 git clone https://github.com/soneryesilay/AcunmedyaAkademiProject2.git
-add-migration InitialCreate
+```
+
+Database
+
+```bash
+Add-Migration MigrationName
 Update-Database
 ```
 
