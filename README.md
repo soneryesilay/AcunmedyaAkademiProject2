@@ -1,6 +1,6 @@
 # Acunmedya Akademi Sweet Shop
 
-Bu proje, 26.02.2025 tarihinde tamamladığım Acunmedya Akademi ve Murat Yücedağ tarafından hazırlanan C# ile programlamaya giriş eğitiminin ilk Case'ini  içermektedir.
+Bu proje, 26.02.2025 tarihinde tamamladığım Acunmedya Akademi ve Murat Yücedağ tarafından hazırlanan C# ile programlamaya giriş eğitiminin ikinci Case'ini  içermektedir.
 
 ## Eğitim İçeriği
 
