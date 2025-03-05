@@ -47,8 +47,8 @@ ve daha fazlası...
 ## Utilizing the Repository
 
 - Web.config ve SweetContext dosyalarında bulunan connection stringleri değiştirmeyi unutmayın!
-- Admin Tablosuna kullanıcı adı ve şifreyi MSSQL üzerinden eklemeyi unutmayın!
 - Migration Klasörünü silmeyi untumayın!
+- Admin Tablosuna kullanıcı adı ve şifreyi MSSQL üzerinden eklemeyi unutmayın!
   
 Clone the project: 
 
