@@ -48,7 +48,8 @@ ve daha fazlası...
 
 - Web.config ve SweetContext dosyalarında bulunan connection stringleri değiştirmeyi unutmayın!
 - Admin Tablosuna kullanıcı adı ve şifreyi MSSQL üzerinden eklemeyi unutmayın!
-
+- Migration Klasörünü silmeyi untumayın!
+  
 Clone the project: 
 
 ```bash
